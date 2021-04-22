@@ -1,0 +1,301 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+
+using namespace std;
+
+//Global Variables
+
+double total = 0;
+double Tax_total = 0;
+int counter = 0;
+double max_total = 0;
+
+
+//Struct
+struct NewOrder
+{
+	int item_no[8];
+	string item_name[8];
+	double item_price[8];
+
+};
+
+//Display Ftn
+
+void display()
+{
+	cout << endl;
+	cout << "\t" << "Product List " << endl;
+
+	cout << "-------------------------------" << endl;
+	cout << endl;
+
+	cout << "\t " << "1- Eggs    = 15$" << endl;
+	cout << "\t " << "2- Nehari  = 100$" << endl;
+	cout << "\t " << "3- Paratha = 15$" << endl;
+	cout << "\t " << "4- Bread   = 20$" << endl;
+	cout << "\t " << "5- Milk    = 30$" << endl;
+	cout << "\t " << "6- Tea     = 20$" << endl;
+	cout << "\t " << "7- Rice    = 45" << endl;
+	cout << "\t " << "8- coffee  = 12$" << endl;
+	cout << endl;
+	cout << "-------------------------------" << endl;
+
+}
+
+//Billing Ftn
+
+int bill(int x)
+{
+	if (x == 1)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q = 0;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+		
+		}
+		else {
+			total = total + 15 * q;
+			return total;
+		}
+	}
+	else if (x == 2)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+		
+		}
+		else {
+			total = total + 100 * q;
+			return total;
+		}
+	}
+	else if (x == 3)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+		}
+		else {
+			total = total + 15 * q;
+			return total;
+		}
+	}
+	else if (x == 4)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+		}
+		else {
+			total = total + 20 * q;
+			return total;
+		}
+	}
+	else if (x == 5)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+		}
+		else {
+			total = total + 30 * q;
+			return total;
+		}
+	}
+	else if (x == 6)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+		}
+		else {
+			total = total + 20 * q;
+			return total;
+		}
+	}
+	else if (x == 7)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+		}
+		else {
+			total = total + 45 * q;
+			return total;
+		}
+	}
+	else if (x == 8)
+	{
+		cout << "\t" << "How Much Quantity Do you want to Purchase ?";
+		int q;
+		cin >> q;
+		if (q == 0)
+		{
+			cout << "Error ! Quantity Never Be ZERO" << endl;
+			
+		}
+		else {
+			total = total + 12 * q;
+			return total;
+		}
+	}
+
+}
+
+//Call Ftn
+
+void call()
+{
+	int x;
+	cout << endl;
+	cout << "\t" << "Do you want to Purchase More Items ?" << endl;
+	cout << "\t" << "------------------------------------" << endl;
+	cout << "\t" << "Press '1' For purchasing more items & Press '0' For Calculating Total Bill ";
+	cout << endl;
+
+	int temp = 0;
+	cin >> temp;
+
+	if (temp == 1)
+	{
+		cout << "\t" << "Enter The Product ID for Purchasing = ";
+		cin >> x;
+		bill(x);
+		call();
+	}
+
+	else if (temp == 0)
+	{
+		system("CLS");
+
+		cout << endl;
+		cout << "--------------------------------------------------------------" << endl;
+		cout << "\t" << "Your Total Bill Without Tax Is = " << total << endl;
+		Tax_total = (total / 100) * 15;
+		total = total - Tax_total;
+		cout << endl;
+		cout << "\t" << "Your Total Bill With Tax Is = " << total << endl;
+		cout << "--------------------------------------------------------------" << endl;
+
+		counter++;
+		
+		max_total = max_total + total;
+		total = 0;
+
+		cout << endl;
+		
+
+		
+
+	}
+
+	cout << endl;
+
+	
+}
+
+// Main
+
+int main()
+{
+
+	NewOrder O;
+
+
+
+	//INITIALIZING STRUCT ELEMENTS
+
+	for (int i = 0; i < 8; i++)
+	{
+		O.item_no[i] = i + 1;
+	}
+
+	O.item_name[0] = "eggs";
+	O.item_name[1] = "Nahari";
+	O.item_name[2] = "Paratha";
+	O.item_name[3] = "Bread";
+	O.item_name[4] = "Yogurt";
+	O.item_name[5] = "Malayi";
+	O.item_name[6] = "Coffee";
+	O.item_name[7] = "Tea";
+
+	O.item_price[0] = 15;
+	O.item_price[1] = 100;
+	O.item_price[2] = 15;
+	O.item_price[3] = 20;
+	O.item_price[4] = 30;
+	O.item_price[5] = 20;
+	O.item_price[6] = 45;
+	O.item_price[7] = 12;
+
+	int x;
+
+	cout << endl;
+	cout << endl;
+	cout << endl;
+	cout << endl;
+
+	cout << "\t" << "\t" << "LOADING..." << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250); cout << "*"; Sleep(250);
+
+
+	system("CLS");
+	display();
+	cout << "\t" << "Enter The Product ID for Purchasing = ";
+	cin >> x;
+	bill(x);
+	call();
+
+	cout << endl;
+
+
+	int tempo;
+
+	cout << "Enter '1' For Continue This Program " << endl;
+	cout << "OR" << endl;
+	cout << "Enter '0' For Calculating Order Report & also for quiting this program : " << endl;
+	cin >> tempo;
+	cout << endl;
+
+	if (tempo == 0)
+	{
+		cout << "\t" << "Total No Of Orders " << counter << endl;
+		cout << "-----------------------------------------------" << endl;
+		cout << "\t" << "Total No Of Amount $" << max_total << endl;
+		cout << "-----------------------------------------------" << endl;
+		cout << "\t" <<"Thank You! For Shopping With Us" << endl;
+		cout << endl;
+	}
+	else if (tempo == 1)
+	{
+		main();
+	}
+
+
+
+
+	return 0;
+}
